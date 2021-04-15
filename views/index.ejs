@@ -1,0 +1,62 @@
+<!-- <h2>Hello Todos page</h2>
+
+{{#if todos.length }}
+
+    <ul>
+        {{#each todos}}
+            <li class="todo">
+                <label>
+                    {{#if completed }}
+                        <input type="checkbox" checked> 
+                        <span class="completed">{{title}}</span>
+                    {{else}}
+                        <input type="checkbox"> 
+                        <span>{{title}}</span>
+                    {{/if}}
+                        <button class="btn btn-small">Save</button>
+                </label>    
+            </li>
+        {{/each}}
+    </ul>
+
+{{else}}
+ <p>No Todos!</p>
+{{/if}} -->
+
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <h1>Todo</h1>
+
+        <% if (todos.length) { %>
+        
+            <ul>
+                <% for(let i=0; i < todos.length; i++) { %>
+                    <li>
+                        
+                        <form action="/complete" method="POST">
+                            <label class="todo">
+                                <% if (todos[i].completed) {%>
+                                    <input type="checkbox" name="completed" checked> 
+                                    <span class="completed"><%= todos[i].title %></span>
+                                <%} else { %>
+                                    <input type="checkbox" name="completed"> 
+                                    <span><%= todos[i].title %></span>
+                                <% } %>
+                                    <input type="hidden" value="<%= todos[i].id%>" name="id">
+
+                                    <button type="submit" class="btn btn-small">Save</button>
+                            </label>   
+                        </form> 
+                    </li>
+                <% } %>
+            </ul>
+
+            <%} else { %>
+            <p>No Todos!</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

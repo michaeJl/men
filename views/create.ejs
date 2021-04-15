@@ -1,0 +1,16 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <form action="/create" method="POST">
+            <h2>Create todo</h2>
+            <div class="input-field">
+                <input type="text" name="title">
+                <label>Todo title</label>
+            </div>
+        
+            <button type="submit" class="btn">Create</button>
+        </form>
+    </div>
+</body>
+</html>

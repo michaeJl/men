@@ -1,0 +1,11 @@
+.todo {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.completed {
+    text-decoration: line-through;
+}
